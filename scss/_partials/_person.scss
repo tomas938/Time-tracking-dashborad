@@ -21,11 +21,12 @@ main {
 	}
 }
 .person {
+	opacity: 0;
+	transform: translateY(100px);
 	border-radius: 1.4rem;
 	grid-area: person;
 	background-color: $dark-blue;
 	@include flex-column;
-
 	.top {
 		@include flex-column;
 		gap: 3rem;

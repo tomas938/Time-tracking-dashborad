@@ -1,6 +1,7 @@
 const daily = document.querySelector("#daily");
 const weekly = document.querySelector("#weekly");
 const monthly = document.querySelector("#monthly");
+const person = document.querySelector(".person");
 getData();
 async function getData() {
 	const res = await fetch("data.json");
@@ -38,13 +39,20 @@ function displayData(data) {
 			item.timeframes.weekly.current,
 			item.timeframes.weekly.previous
 		);
-		daily.addEventListener("click", () => {
-			renderMarkup(
-				item,
-				item.timeframes.daily.current,
-				item.timeframes.daily.previous
-			);
-		});
+		main.appendChild(statistic);
+		gsap.to(".statistics", {
+			opacity: 1,
+			x: 0,
+			duration: 0.5,
+			stagger: 0.25,
+		}),
+			daily.addEventListener("click", () => {
+				renderMarkup(
+					item,
+					item.timeframes.daily.current,
+					item.timeframes.daily.previous
+				);
+			});
 		weekly.addEventListener("click", () => {
 			renderMarkup(
 				item,
@@ -59,6 +67,10 @@ function displayData(data) {
 				item.timeframes.monthly.previous
 			);
 		});
-		main.appendChild(statistic);
 	});
 }
+
+// GSAP //
+setTimeout(() => {
+	gsap.to(".person", { opacity: 1, y: 0, duration: 1 });
+}, 500);
