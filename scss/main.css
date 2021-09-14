@@ -206,15 +206,30 @@ main {
   border-radius: 1.4rem;
 }
 
+.statistics {
+  -webkit-transition: -webkit-filter 0.2s ease-in-out;
+  transition: -webkit-filter 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
+}
+
+.statistics:hover {
+  -webkit-transition: -webkit-filter 0.2s ease-in-out;
+  transition: -webkit-filter 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
+  -webkit-filter: brightness(1.25);
+          filter: brightness(1.25);
+}
+
 .statistics__item .top {
   width: 100%;
-  height: 5rem;
+  height: 7rem;
   background-color: #eeb2b2;
   border-radius: 1.4rem;
 }
 
 .statistics__item .bottom {
-  margin-top: -2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -223,9 +238,11 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 3rem;
+  margin-top: -2rem;
   padding: 3rem 4rem;
   border-radius: 1.4rem;
   background-color: #1c1f4a;
+  cursor: pointer;
 }
 
 .statistics h3 {
@@ -269,5 +286,51 @@ main {
 .statistics .dashboard-stats span {
   font-size: 7rem;
   font-weight: 300;
+}
+
+.statistics__item .top {
+  background-repeat: no-repeat;
+  background-position: top right 3rem;
+}
+
+.statistics__item-0 .top {
+  background-color: #ff8c66;
+  background-image: url(../../images/icon-work.svg);
+}
+
+.statistics__item-1 .top {
+  background-color: #56c2e6;
+  background-image: url(../../images/icon-play.svg);
+}
+
+.statistics__item-2 .top {
+  background-color: #ff5c7c;
+  background-image: url(../../images/icon-study.svg);
+}
+
+.statistics__item-3 .top {
+  background-color: #4acf81;
+  background-image: url(../../images/icon-exercise.svg);
+}
+
+.statistics__item-4 .top {
+  background-color: #7536d3;
+  background-image: url(../../images/icon-social.svg);
+}
+
+.statistics__item-5 .top {
+  background-color: #f1c65b;
+  background-image: url(../../images/icon-self-care.svg);
+}
+
+svg path {
+  -webkit-transition: fill 0.2s ease-in-out;
+  transition: fill 0.2s ease-in-out;
+}
+
+svg path:hover {
+  -webkit-transition: fill 0.2s ease-in-out;
+  transition: fill 0.2s ease-in-out;
+  fill: white;
 }
 /*# sourceMappingURL=main.css.map */
