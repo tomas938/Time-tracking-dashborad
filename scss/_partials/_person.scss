@@ -1,0 +1,83 @@
+@import "../mixins/mixins";
+main {
+	gap: 3rem;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-areas:
+		"person item item item"
+		"person item item item";
+	@media only screen and (max-width: 1100px) {
+		grid-template-columns: repeat(3, 1fr);
+
+		grid-template-areas:
+			"person item item "
+			"person item item ";
+	}
+	@media only screen and (max-width: 860px) {
+		grid-template-columns: (1fr);
+		grid-template-areas:
+			"person "
+			"item";
+	}
+}
+.person {
+	border-radius: 1.4rem;
+	grid-area: person;
+	background-color: $dark-blue;
+	@include flex-column;
+
+	.top {
+		@include flex-column;
+		gap: 3rem;
+		background-color: $blue;
+		@media only screen and (max-width: 860px) {
+			@include flex-row;
+			justify-content: center;
+			align-items: center;
+		}
+		img {
+			max-width: 8rem;
+			border-radius: 50%;
+			border: 3px solid #fff;
+		}
+	}
+	.top .description {
+		@include flex-column;
+		padding-bottom: 8rem;
+		@media only screen and (max-width: 1100px) {
+			gap: 1rem;
+		}
+		@media only screen and (max-width: 860px) {
+			padding-bottom: 0;
+		}
+		h1 {
+			font-size: 4.5rem;
+			font-weight: $light;
+		}
+		span {
+			font-size: 1.2rem;
+			color: rgba(255, 255, 255, 0.589);
+		}
+	}
+	.bottom {
+		@include flex-column;
+		@media only screen and (max-width: 860px) {
+			@include flex-row;
+			justify-content: space-between;
+		}
+		gap: 2rem;
+		span {
+			color: rgba(255, 255, 255, 0.781);
+			&:hover {
+				cursor: pointer;
+				color: white;
+				transition: color 0.3s ease-in-out;
+			}
+		}
+	}
+	.bottom,
+	.top {
+		padding: 3rem;
+		border-radius: 1.4rem;
+	}
+}
